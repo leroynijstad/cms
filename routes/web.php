@@ -25,7 +25,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/view_tasks/', function () {
+Route::get('/task/', function () {
     $tasks = Task::orderBy('created_at', 'asc')->get();
 
     return view('tasks', [
@@ -42,7 +42,7 @@ Route::post('/task', function (Request $request) {
     ]);
 
     if ($validator->fails()) {
-        return redirect('/view_tasks/')
+        return redirect('/task/')
             ->withInput()
             ->withErrors($validator);
     }
@@ -51,7 +51,7 @@ Route::post('/task', function (Request $request) {
     $task->name = $request->name;
     $task->save();
 
-    return redirect('/view_tasks/');
+    return redirect('/task/');
 });
 /**
  * Delete An Existing Task
@@ -59,5 +59,5 @@ Route::post('/task', function (Request $request) {
 Route::delete('/task/{task}', function (Task $task) {
     $task->delete();
 
-    return redirect('/view_tasks/');
+    return redirect('/task/');
 });
