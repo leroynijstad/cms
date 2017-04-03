@@ -23,9 +23,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
 
         parent::boot();
+
+        Route::bind('page', function ($value) {
+              return \App\Page::where('link', $value)->first();
+          });
+
     }
 
     /**
@@ -39,7 +43,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
     }
 
     /**

@@ -10,54 +10,34 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use App\Task;
 use Illuminate\Http\Request;
+use App\Notifications\InvoicePaid;
 
-/**
- * Display All Tasks
- */
-Route::get('/', function () {
+Route::auth();
+Route::get('/administrator', 'AdminController@dashboard');
 
-    return view('home', [
-        'titel' => 'This is the best',
-		'content' => 'welkom bij mijn nieuwe laravel website'
-    ]);
-});
+Route::get('/administrator/module/user/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/user', 'ResourceController');
 
-Route::get('/view_tasks/', function () {
-    $tasks = Task::orderBy('created_at', 'asc')->get();
+Route::get('/administrator/module/module/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/module', 'ResourceController');
 
-    return view('tasks', [
-        'tasks' => $tasks,
-		'titel' => 'titel'
-    ]);
-});
-/**
- * Add A New Task
- */
-Route::post('/task', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|max:255',
-    ]);
+Route::get('/administrator/module/banner/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/banner', 'ResourceController');
 
-    if ($validator->fails()) {
-        return redirect('/view_tasks/')
-            ->withInput()
-            ->withErrors($validator);
-    }
+Route::get('/administrator/module/album/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/album', 'ResourceController');
 
-    $task = new Task;
-    $task->name = $request->name;
-    $task->save();
+Route::get('/administrator/module/page/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/page', 'ResourceController');
 
-    return redirect('/view_tasks/');
-});
-/**
- * Delete An Existing Task
- */
-Route::delete('/task/{task}', function (Task $task) {
-    $task->delete();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-    return redirect('/view_tasks/');
-});
+Route::get('/portfolio', 'PortfolioController@index');
+Route::get('/portfolio/album/{album}', 'PortfolioController@show');
+Route::get('/portfolio/categorie/{categorie}', 'PortfolioController@showCategorie');
+
+Route::get('/', 'MainController@home');
+Route::get('/{page}', 'MainController@show');

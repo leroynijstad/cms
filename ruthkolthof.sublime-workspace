@@ -1,0 +1,448 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"body",
+				"imap_body"
+			],
+			[
+				"string",
+				"highlight_string"
+			],
+			[
+				"id",
+				"idate"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 309.0,
+		"last_filter": "composer",
+		"selected_items":
+		[
+			[
+				"composer",
+				"Composer: Update"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"larvel push",
+				"Laravel Artisan 5: Vendor:Publish"
+			],
+			[
+				"make:model ",
+				"Laravel Artisan 5: Make:Model"
+			],
+			[
+				"make: controller ",
+				"Laravel Artisan 5: Make:Controller"
+			],
+			[
+				"HTML",
+				"Set Syntax: HTML"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"latx",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"prv",
+				"Package Control: Discover Packages"
+			],
+			[
+				"",
+				"Boxy Theme: Activation"
+			],
+			[
+				"packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"Boxy",
+				"Boxy Theme: Activation"
+			]
+		],
+		"width": 382.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/ruthkolthof/app"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/cms/resources/views/posts/create.blade.php",
+		"/C/xampp/htdocs/cms/app/Http/Controllers/PostsController.php",
+		"/C/xampp/htdocs/cms/app/Http/Controllers/CommentsController.php",
+		"/C/xampp/htdocs/cms/routes/web.php",
+		"/C/xampp/htdocs/cms/resources/views/posts/show.blade.php",
+		"/C/xampp/htdocs/cms/app/Post.php",
+		"/C/xampp/htdocs/cms/app/Comment.php",
+		"/C/xampp/htdocs/cms/database/migrations/2017_03_14_120145_create_comments_table.php",
+		"/C/xampp/htdocs/cms/resources/assets/sass/app.scss",
+		"/C/xampp/htdocs/cms/resources/views/posts/post.blade.php",
+		"/C/xampp/htdocs/cms/resources/views/posts/index.blade.php",
+		"/C/xampp/htdocs/cms/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
+		"/C/xampp/htdocs/cms/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+		"/C/xampp/htdocs/cms/vendor/laravel/framework/src/Illuminate/Database/Schema/PostgresBuilder.php",
+		"/C/xampp/htdocs/cms/vendor/nikic/php-parser/lib/PhpParser/Builder.php",
+		"/C/xampp/htdocs/cms/resources/views/layouts/errors.blade.php",
+		"/C/xampp/htdocs/cms/resources/views/layouts/master.blade.php",
+		"/C/xampp/htdocs/cms/database/migrations/2017_03_12_221510_create_posts_table.php",
+		"/C/xampp/htdocs/cms/database/migrations/single/2017_03_12_221510_create_posts_table.php",
+		"/C/xampp/htdocs/cms/app/Http/Controllers/TasksController.php",
+		"/C/xampp/htdocs/cms/resources/views/layouts/footer.blade.php",
+		"/C/xampp/htdocs/cms/resources/views/layouts/nav.blade.php",
+		"/C/xampp/htdocs/cms/resources/views/layouts/sidebar.blade.php",
+		"/C/xampp/htdocs/cms/public/css/blog.css",
+		"/C/xampp/htdocs/cms/resources/views/layouts/sidebar.blade",
+		"/C/xampp/htdocs/cms/resources/views/layout.blade.php",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/composer-sublime.sublime-settings",
+		"/C/xampp/htdocs/cms/package.json",
+		"/C/xampp/htdocs/cms/composer.json",
+		"/C/xampp/htdocs/composer.phar",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/Composer/composer-sublime.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/Laravel 5 Artisan.sublime-commands",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/Laravel 5 Artisan.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/Laravel 5 Artisan/Laravel 5 Artisan.sublime-settings",
+		"/C/xampp/htdocs/cms/app/Http/Controllers/CommentController.php",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/1self.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/method.sublime-macro",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/phpcodegen.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.last-run",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/markupsafe/dependency-metadata.json",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/xampp/htdocs/cms/resources/views/tasks/show.blade.php",
+		"/C/xampp/htdocs/cms/app/Task.php",
+		"/C/xampp/htdocs/cms/resources/views/tasks/index.blade.php",
+		"/C/xampp/htdocs/cms/database/migrations/2017_03_12_212356_create_tasks_table.php",
+		"/C/xampp/htdocs/cms/app/task.php",
+		"/C/xampp/htdocs/cms/database/migrations/2017_03_12_202542_create_tasks_table.php",
+		"/C/xampp/htdocs/cms/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/cms/tasks/show.blade.php",
+		"/C/xampp/htdocs/cms/config/database.php",
+		"/C/xampp/htdocs/cms/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/xampp/htdocs/cms/database/migrations/2014_10_12_100000_create_password_resets_table.php",
+		"/C/xampp/htdocs/cms/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/cms/vendor/laravel/framework/src/Illuminate/Support/Facades/Schema.php",
+		"/C/xampp/htdocs/cms/resources/views/about.blade.php",
+		"/C/xampp/htdocs/cms/resources/views/portfolio/index.blade.php",
+		"/C/xampp/htdocs/cms/vendor/laravel/framework/src/Illuminate/Support/helpers.php",
+		"/C/xampp/htdocs/cms/.env",
+		"/C/xampp/htdocs/cms/resources/views/portfolio/__init__.py",
+		"/C/xampp/htdocs/cms/webpack.mix.js",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/meth.sublime-snippet",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/PhpCodeGen/phpcodegen.sublime-settings",
+		"/C/xampp/htdocs/cms/app/Exceptions/Handler.php"
+	],
+	"find":
+	{
+		"height": 60.0
+	},
+	"find_in_files":
+	{
+		"height": 130.0,
+		"where_history":
+		[
+			"C:\\xampp\\htdocs\\cms\\database\\migrations\\single"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";\n",
+			"');\n",
+			"Route",
+			"\t\t\t\t<button type=\"submit\" class=\"btn btn-primary\" name=\"submit\">Submit</button>\n",
+			"\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<textarea name=\"body\" placeholder=\"Your Comment Here\" class=\"form-control\"></textarea>\n\n\t\t\t\t\t\t</div>",
+			"all()",
+			"Illuminate\\Database\\Query\\Builder::all()",
+			"{{ ",
+			"\t\t\t\t{{",
+			"{{",
+			"{{ ",
+			"{{ $errors->first('body') }}",
+			"\">\n",
+			"title",
+			"required",
+			"');\n",
+			"Migration",
+			"');\n",
+			";\n",
+			"');",
+			"TasksController",
+			">\n",
+			"Thetask",
+			"task",
+			"');\n",
+			"htmlspecialchars(",
+			">",
+			"\n<snippet>\n\t<content><![CDATA[\nprotected function ${1:methodName}(){\n\t${2:methodCode}\n}\n]]></content>\n\t<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->\n\t<tabTrigger>meth</tabTrigger> \n\t<!-- Optional: Set a scope to limit where the snippet will trigger -->\n\t<!-- <scope>source.python</scope> -->\n</snippet>\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "C:\\xampp\\htdocs\\ruthkolthof"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.composer":
+	{
+		"height": 118.0
+	},
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 90.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"postsco",
+				"app\\Http\\Controllers\\PostsController.php"
+			],
+			[
+				"commentsc",
+				"app\\Http\\Controllers\\CommentsController.php"
+			],
+			[
+				"rweb",
+				"routes\\web.php"
+			],
+			[
+				"create.bl",
+				"resources\\views\\posts\\create.blade.php"
+			],
+			[
+				"show",
+				"resources\\views\\posts\\show.blade.php"
+			],
+			[
+				"create_comment",
+				"database\\migrations\\2017_03_14_120145_create_comments_table.php"
+			],
+			[
+				"comment",
+				"app\\Comment.php"
+			],
+			[
+				"illuminate/builder",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php"
+			],
+			[
+				"illuminate/database/query/builder",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php"
+			],
+			[
+				"latestbuilder",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\PostgresBuilder.php"
+			],
+			[
+				"builder",
+				"vendor\\nikic\\php-parser\\lib\\PhpParser\\Builder.php"
+			],
+			[
+				"creat_post",
+				"database\\migrations\\2017_03_12_221510_create_posts_table.php"
+			],
+			[
+				"blade",
+				"resources\\views\\layout.blade.php"
+			],
+			[
+				"taskcon",
+				"app\\Http\\Controllers\\TaskController.php"
+			],
+			[
+				"appserv",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"schema",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Schema.php"
+			],
+			[
+				"wel",
+				"resources\\views\\welcome.blade.php"
+			],
+			[
+				".ev",
+				".env"
+			],
+			[
+				"cdata",
+				"config\\database.php"
+			],
+			[
+				"",
+				"resources\\views\\welcome.blade.php"
+			],
+			[
+				"helpers",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php"
+			],
+			[
+				"cdatabase",
+				"config\\database.php"
+			],
+			[
+				"web",
+				"webpack.mix.js"
+			],
+			[
+				"rwelcome",
+				"resources\\views\\welcome.blade.php"
+			],
+			[
+				"resources/",
+				"resources\\views\\welcome.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 330.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

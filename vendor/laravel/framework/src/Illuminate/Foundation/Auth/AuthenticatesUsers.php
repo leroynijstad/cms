@@ -4,7 +4,6 @@ namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Lang;
 
 trait AuthenticatesUsers
 {
@@ -17,14 +16,14 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('essentials.auth.login');
     }
 
     /**
      * Handle a login request to the application.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function login(Request $request)
     {
@@ -124,11 +123,15 @@ trait AuthenticatesUsers
      */
     protected function sendFailedLoginResponse(Request $request)
     {
+        $errors = [$this->username() => trans('auth.failed')];
+
+        if ($request->expectsJson()) {
+            return response()->json($errors, 422);
+        }
+
         return redirect()->back()
             ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors([
-                $this->username() => Lang::get('auth.failed'),
-            ]);
+            ->withErrors($errors);
     }
 
     /**
@@ -144,7 +147,7 @@ trait AuthenticatesUsers
     /**
      * Log the user out of the application.
      *
-     * @param \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
@@ -155,7 +158,7 @@ trait AuthenticatesUsers
 
         $request->session()->regenerate();
 
-        return redirect('/');
+        return redirect('/administrator');
     }
 
     /**
