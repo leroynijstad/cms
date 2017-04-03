@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Iceland');
+@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+.navbar-inverse{
+	margin:0px;
+	background-color: #fff;
+	border-radius: 0px;
+	border: none;
+	height: 80px;
+	
+	.navbar-nav{
+		/*font-family: 'Iceland', cursive;*/
+		ont-family: 'Nova Square', cursive;
+		font-size: 18px;
+		text-transform: uppercase;
+		padding: 15px 0px;
+		
+		li > a {
+			&hover, &focus{
+				color: #333;
+			}
+		}
+	}
+	
+	.navbar-right{
+		padding:22px 0px 0px 0px;
+		margin:0px;
+		
+		a{padding: 0px; margin:0px 5px;}
+		.social_item{ }
+		.facebook { background-image: url('/images/facebook_normal.png'); background-repeat: no-repeat; width: 33px; height: 33px; }
+		.facebook:hover { background-image: url('/images/facebook_over.png'); background-repeat: no-repeat; width: 33px; height: 33px; }
+		.instagram { background-image: url('/images/instagram_normal.png'); background-repeat: no-repeat; width: 33px; height: 33px; }
+		.instagram:hover { background-image: url('/images/instagram_over.png'); background-repeat: no-repeat; width: 33px; height: 33px; }
+		.pinterest { background-image: url('/images/pinterest_normal.png'); background-repeat: no-repeat; width: 33px; height: 33px; }
+		.pinterest:hover { background-image: url('/images/pinterest_over.png'); background-repeat: no-repeat; width: 33px; height: 33px; }
+		
+	}
+	.navbar-brand {
+		
+		position: relative;
+		width: 140px;
+		height: 50px;
+		padding: 0px 5px;
+		
+		&hover, &focus{
+		  background-color: #fff;
+		}
+		
+		.website-logo{
+			img{
+				width: 90%;
+				height: auto;
+				padding: 5px 10px 0px 10px;
+				background-color: #333;
+				border-radius: 0px 0px 10px 10px;
+			}
+		}
+		.mobile-logo{
+			img{
+				position:relative;
+				top: 7px;
+				width: 150%;
+			}
+		}
+			
+	}
+}
+
+@media screen and (max-width: 768px){
+	.navbar-right{
+		display: none;
+		visibility: hidden;
+	}
+	
+	.mobile-logo {
+		visibility: visible;
+		display: inline;
+	}
+	.website-logo{
+		visibility: hidden;
+		display: none;
+	}
+	.navbar-brand{
+		background-color: none;
+		border-radius: none;
+	}
+	
+	.navbar-collapse {
+		width: 100%;
+		background-color: #333;
+	}
+	
+}
+
+@media screen and (min-width: 768px){
+	.website-logo {
+		visibility: visible;
+		display: inline;
+	}
+	.mobile-logo{
+		visibility: hidden;
+		display: none;
+	}
+}

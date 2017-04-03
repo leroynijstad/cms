@@ -1,5 +1,6 @@
 <?php
 
+use App\Input;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -21,6 +22,23 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        
+        $columns = Schema::getColumnListing('users');
+        $columns = array_diff($columns, ['id','created_at', 'updated_at']);
+        foreach($columns as $column){
+            $input = new Input;
+            $input->table_name = 'users';
+            $input->column_name = $column;
+            $input->save();
+        }
+        DB::table('users')->insert(
+              array([
+                  'name' => 'test test',
+                  'email' => 'test@testing.nl',
+                  'password' => bcrypt('test')
+              ]
+          ));
+
     }
 
     /**

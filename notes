@@ -1,0 +1,18 @@
+
+frontend
+
+	
+	->home
+		->banner shows all banners
+
+	->portfolio
+		shows all albums
+		shows sub album
+		shows foto's
+
+	->over
+		shows static page
+	->contact
+		shows static page
+
+	user interacts -> controller responds -> model adapts -> view watches

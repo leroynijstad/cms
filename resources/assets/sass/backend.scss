@@ -1,0 +1,166 @@
+html, body {
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	overflow: hidden;
+
+}
+
+*, *:before, *:after {
+
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+
+}
+
+.no-margin{
+
+	padding:0px;
+	margin:0px;
+
+}
+
+.textpurple { color: #572ebf; }
+.textred { color: #ec2327; }
+.textgreen { color: #27b63b; }
+.bgpurple { background-color: #572ebf; }
+.bgred { background-color: #ec2327; }
+.bggreen { background-color: #27b63b; }
+
+
+.login-panel {
+
+	position: relative;
+
+}
+
+.menu {
+
+	@media screen and (min-width: 480px) { width:4%;}
+	@media screen and (max-width: 480px) { width:15%;}
+
+
+	background-color: #222;
+	height: 100vh; 
+	overflow: hidden;
+
+	padding: 25px 0px;
+
+	font-size: 10px;
+
+	color: #fff;
+	float: left;
+
+	.item {
+
+		height: 75x;
+		margin-bottom: 25px;
+		width: 100%;
+		text-align: center;
+
+		a {
+			
+			text-decoration:none;
+			color: #fff;
+
+			img {
+
+				width: 50%;
+				height: auto; 
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+
+				&:hover{
+
+					opacity: 1;
+					filter: alpha(opacity=100);
+
+				}
+			}
+		}
+
+		div {
+
+			padding: 10px 0px;
+			text-transform: uppercase;
+			text-align:center;
+		}
+	}
+}
+
+.content {
+
+	@media screen and (min-width: 480px) { width: 96%;}
+	@media screen and (max-width: 480px) { width: 85%;}
+
+	background-color:#fff;
+	margin: 0px; 
+	padding: 20px 0px; 
+	height: 100vh; 
+	overflow-y: scroll;
+
+	.modules {
+
+		text-align: center;
+		height: 140px;
+
+		.icon {
+
+			width: 50%;
+			height: 100%;
+			float: left;
+
+			img {
+
+				width: auto;
+				height: 100%;
+				padding: 20px;
+				float: left;
+				
+			}
+		}
+
+		.title {
+
+			text-transform: capitalize;
+			width: 50%;
+			height: 100%;
+			float:left;
+			color: #fff;
+
+		}
+	}
+}
+.menu_top{
+	margin: 5px 0px;
+	padding: 10px;
+	background-color: #337ab7;
+	border-radius: 2px;
+	color: #fff;
+	a{
+		color: #fff;
+	}
+}
+
+form{
+	padding: 25px;
+	border: 1px solid #337ab7;
+	margin:0px;
+	.form-group{
+		label{
+			text-align: right;
+			padding-top: 5px;
+			text-transform: capitalize;
+		}
+		padding: 10px 0px;
+		border-bottom: 1px dotted #337ab7;
+		.form-control{
+
+		}
+	}
+}
+
+table {border:1px solid #337ab7;}
