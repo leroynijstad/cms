@@ -9,24 +9,23 @@ use App\Http\Controllers\Controller;
 
 class PortfolioController extends Controller
 {
-	protected $parent_id = 0;
-	protected $albums;
 
+	protected $albums;
+	
     public function index($categorie = null) {
 
     	$this->albums = $this->getAlbums($categorie);
-
-		return view('frontend.portfolio.index', ['albums' => $this->albums, 'parent_id' => $this->parent_id]);
+		return view('frontend.portfolio.index', ['albums' => $this->albums]);
 		
 	}  
 
 	public function show(Album $album){
 
 		if($this->getSubAlbums($album->id)->count()) {
-			return view('frontend.portfolio.index', ['albums' => $this->albums, 'parent_id' => $album->id]);
+			return view('frontend.portfolio.index', ['albums' => $this->albums]);
 		}
 
-		return view('frontend.portfolio.show', ['album' => $album, 'parent_id' => $this->parent_id]);
+		return view('frontend.portfolio.show', compact('album'));
 		
 	}
 	

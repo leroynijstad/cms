@@ -2,7 +2,7 @@
 
 @section ('content')
 	<div class="container-fluid content">
-		@if(!$parent_id)	
+		@if($albums[0]->parent_id === 0)	
 		<section id="portfolioMenu">
 			<a href="/portfolio/">Alles</a>
 			<a href="/portfolio/categorie/studio">Studio</a>

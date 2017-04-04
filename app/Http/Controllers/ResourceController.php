@@ -2,25 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\{Album, Input, Module, Page, Photo, User};
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
-{
+{  
+    protected $module;
+    protected $class;
+
+    protected $exceptions = [
+        'index' => ['text', 'created_at','updated_at'],
+        'create' => ['id', 'sequence'],
+        'edit' => []
+    ];
+
+    public function __construct(Request $request){
+
+        $url = explode('/',  $request->path());
+        $this->module['name'] = $url[2];
+        $this->module['table'] = $url[2].'s';
+        $this->module['class'] = "App\\".ucfirst($url[2]);
+
+        $this->class = new $this->module['class'];
+        $this->middleware('auth');
+
+
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        
-        // get list of resources for table
-            // get class of resource model
+    public function index()
+    {  
+        $objects = $this->class->all();
 
+        $columns =  array_diff(\Schema::getColumnListing($this->module['table']), $this->exceptions['index']);
 
-        // get columns by specification from model.
-
-        // return view with table
-
+        return view("backend.module.index", [
+            'objects' => $objects, 
+            'columns' => $columns, 
+            'module'=>  $this->module['name']
+        ]);
     }
 
     /**
@@ -30,7 +53,12 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        //
+        $columns = $this->setupColumns('create');
+
+        return view("backend.module.create", [
+            'columns' => $columns, 
+            'module'=>  $this->module['name']
+        ]);
     }
 
     /**
@@ -41,18 +69,17 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $columns = $this->setupColumns('create');
+
+        foreach($columns as $column){
+            $attribute = $column['column_name'];
+            $this->class->{$attribute} = $request->$attribute;
+        }
+
+        $this->class->save();
+
+        return redirect("/administrator/module/{$this->module['name']}");
     }
 
     /**
@@ -63,7 +90,17 @@ class ResourceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = ($this->class)->where('id', $id)->first();
+
+        $columns = $this->setupColumns('edit');
+        $columns = $this->assignValues($columns, $model);
+
+        return view("backend.module.edit", [
+            'id' => $id,
+            'columns' => $columns, 
+            'module'=>  $this->module['name']
+        ]);
+
     }
 
     /**
@@ -75,7 +112,19 @@ class ResourceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $model = ($this->class)->where('id', $id)->first();
+        $columns = $this->setupColumns('edit');
+
+        foreach($columns as $column){
+
+            $attribute = $column['column_name'];
+            $model->{$attribute} = $request->$attribute;
+
+        }
+
+        $model->save();
+
+        return redirect("/administrator/module/{$this->module['name']}");
     }
 
     /**
@@ -86,6 +135,66 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $model = ($this->class)->where('id', $id)->first();
+
+        $model->delete();
+
+        return redirect("/administrator/module/{$this->module['name']}");
+        
     }
+
+    public function setupColumns($method) {
+
+        $columns = array_map(
+            array($this, 'checkEnum'), 
+            Input::where('table_name', $this->module['table'])->get()->toArray()
+        );
+
+        foreach( $columns as $key => $value ){
+
+            if(in_array($value['column_name'], $this->exceptions[$method])){
+                unset($columns[$key]);
+            }
+        }
+        return $columns;
+    }
+
+    protected function checkEnum($column){
+        if($column['type'] === 'select'){
+            $column['default_values'] = $this->convertEnum($column['column_name']);
+        }else{
+            $column['column_name'];
+        }
+
+        $column['value'] = '';
+
+        return $column;
+    }
+
+    protected function convertEnum($column){
+
+        $type = \DB::select(\DB::raw("SHOW COLUMNS FROM {$this->module['table']} WHERE Field = '{$column}'"))[0]->Type;
+
+        preg_match('/^enum\((.*)\)$/', $type, $matches);
+        $enum = array();
+        foreach( explode(',', $matches[1]) as $value ) {
+            $v = trim( $value, "'" );
+            $enum = array_add($enum, $v, $v);
+        }
+        return $enum;
+    }
+
+    protected function assignValues($columns, $model){
+        $nr = 0;
+        foreach($columns as $column){
+            $columnname = $column['column_name'];
+            $column['value'] = $model->$columnname;
+            $columns[$nr] =  $column;
+            $nr++;
+        }
+        
+        return $columns;
+    }
+  
 }

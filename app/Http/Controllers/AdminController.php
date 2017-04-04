@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Module;
 
-class DashboardController extends Controller {
+class AdminController extends Controller {
 
 	public function __construct() {
 
@@ -13,7 +13,7 @@ class DashboardController extends Controller {
 
 	}
 
-	public function index(){
+	public function dashboard(){
 
 		$modules = Module::all();
 		

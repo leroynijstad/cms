@@ -14,40 +14,30 @@ use Illuminate\Http\Request;
 use App\Notifications\InvoicePaid;
 
 Route::auth();
+Route::get('/administrator', 'AdminController@dashboard');
 
-Route::group(['prefix' => 'administrator','middleware' => 'auth'],function(){
+Route::get('/administrator/module/user/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/user', 'ResourceController');
 
-	Route::get('/', 'DashboardController@index');
-	
-	Route::model('user', 'App\User');
-	Route::get('module/user/{id}/delete', 'ResourceController@destroy');
-	Route::resource('module/user', 'ResourceController');
-	
-	Route::model('module', 'App\Module');
-	Route::get('module/module/{module}/delete', 'ResourceController@destroy');
-	Route::resource('module/module', 'ResourceController');
-	
-	Route::model('banner', 'App\Banner');
-	Route::get('module/banner/{banner}/delete', 'ResourceController@destroy');
-	Route::resource('module/banner', 'ResourceController');
-	
-	Route::model('album', 'App\Album');
-	Route::get('module/album/{album}/delete', 'ResourceController@destroy');
-	Route::resource('module/album', 'ResourceController');
-	
-	Route::model('page', 'App\Page');
-	Route::get('module/page/{page}/delete', 'ResourceController@destroy');
-	Route::resource('module/page', 'ResourceController');
+Route::get('/administrator/module/module/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/module', 'ResourceController');
 
-});	
+Route::get('/administrator/module/banner/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/banner', 'ResourceController');
 
-Route::group(['prefix' => 'portfolio'], function(){
+Route::get('/administrator/module/album/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/album', 'ResourceController');
 
-	Route::get('/', 'PortfolioController@index');
-	Route::get('/album/{album}', 'PortfolioController@show');
-	Route::get('/categorie/{categorie}', 'PortfolioController@index');
+Route::get('/administrator/module/page/{id}/delete', 'ResourceController@destroy');
+Route::resource('/administrator/module/page', 'ResourceController');
 
-});
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/portfolio', 'PortfolioController@index');
+Route::get('/portfolio/album/{album}', 'PortfolioController@show');
+Route::get('/portfolio/categorie/{categorie}', 'PortfolioController@showCategorie');
 
 Route::get('/', 'MainController@home');
-Route::get('/{pagelink}', 'MainController@show');
+Route::get('/{page}', 'MainController@show');
