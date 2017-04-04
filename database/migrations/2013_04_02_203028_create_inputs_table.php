@@ -14,13 +14,15 @@ class CreateInputsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inputs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('table_name');
-            $table->string('column_name');
-            $table->enum('type', ['text', 'select', 'textarea'])->default('text');
-            $table->timestamps();
-        });
+        if(! Schema::hasTable('inputs') ) {
+            Schema::create('inputs', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('table_name');
+                $table->string('column_name');
+                $table->enum('type', ['text', 'select', 'textarea'])->default('text');
+                $table->timestamps();
+            });
+        }
 
         // $columns = Schema::getColumnListing('inputs');
         // $columns = array_diff($columns, ['id','created_at', 'updated_at']);
