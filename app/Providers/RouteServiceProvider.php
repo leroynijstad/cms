@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Page;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -26,10 +27,11 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
 
-        Route::bind('page', function ($value) {
-              return \App\Page::where('link', $value)->first();
-          });
+        Route::bind('pagelink', function($value) {
 
+            return Page::where('link', $value)->first();
+
+        });
     }
 
     /**
