@@ -1,6 +1,6 @@
 <div class="form-group row">
-  <label for="{{$column['column_name']}}" class="col-sm-1 col-form-label">{{$column['column_name']}}</label>
+  <label for="{{$field->name}}" class="col-sm-1 col-form-label">{{$field->name}}</label>
   <div class="col-sm-3">
-    <input type="text" class="form-control" name="{{$column['column_name']}}" id="{{$column['column_name']}}" value="{{$column['value']}}" >
+    <input type="text" class="form-control" name="{{$field->name}}" id="{{$field->name}}" value="{{$field->value}}" >
   </div>
 </div>

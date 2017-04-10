@@ -27,10 +27,34 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 309.0,
-		"last_filter": "composer",
+		"height": 357.0,
+		"last_filter": "package ",
 		"selected_items":
 		[
+			[
+				"package ",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"generat",
+				"Generate Getter for ..."
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"packagecontrol",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"composer",
 				"Composer: Update"
@@ -38,10 +62,6 @@
 			[
 				"\\",
 				"Snippet: #!/usr/bin/env"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"larvel push",
@@ -84,19 +104,15 @@
 				"Package Control: Enable Package"
 			],
 			[
-				"package",
-				"Package Control: Install Package"
-			],
-			[
 				"Boxy",
 				"Boxy Theme: Activation"
 			]
 		],
-		"width": 382.0
+		"width": 494.0
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 210.0,
 		"history":
 		[
 		]
@@ -112,10 +128,45 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ruthkolthof/app"
+		"/C/xampp/htdocs/ruthkolthof",
+		"/C/xampp/htdocs/ruthkolthof/routes"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ruthkolthof/app/Test.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Http/Controllers/ResourceController.php",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/snippets/constructor.sublime-snippet",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/snippets/class.sublime-snippet",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/snippets/meth.sublime-snippet",
+		"/C/xampp/htdocs/ruthkolthof/app/Http/Controllers/ResourceController_old.php",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/builds/PSR-2.sublime-build",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/User/phpcs.sublime-settings",
+		"/C/Users/leroy/AppData/Roaming/Sublime Text 3/Packages/Phpcs/phpcs.sublime-settings",
+		"/C/xampp/php/pear/PHP/CodeSniffer/Sniff.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Resource.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Album.php",
+		"/C/xampp/htdocs/ruthkolthof/routes/web.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Column.php",
+		"/C/xampp/htdocs/ruthkolthof/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+		"/C/xampp/htdocs/ruthkolthof/vendor/laravel/framework/src/Illuminate/Routing/ResourceRegistrar.php",
+		"/C/xampp/htdocs/ruthkolthof/vendor/laravel/framework/src/Illuminate/Routing/RouteRegistrar.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Module.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Photo.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Page.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Input.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Banner.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Http/Controllers/DashboardController.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Http/Controllers/Controller.php",
+		"/C/xampp/htdocs/ruthkolthof/vendor/laravel/framework/src/Illuminate/Contracts/Routing/Registrar.php",
+		"/C/xampp/htdocs/ruthkolthof/resources/views/frontend/portfolio/index.blade.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Http/Controllers/PortfolioController.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Http/Controllers/MainController.php",
+		"/C/xampp/htdocs/ruthkolthof/app/Providers/RouteServiceProvider.php",
+		"/C/xampp/htdocs/ruthkolthof/.env",
+		"/C/xampp/htdocs/ruthkolthof/database/migrations/2013_04_02_203028_create_inputs_table.php",
+		"/C/xampp/htdocs/ruthkolthof/vendor/laravel/framework/src/Illuminate/Routing/RouteDependencyResolverTrait.php",
+		"/C/xampp/htdocs/ruthkolthof/vendor/laravel/framework/src/Illuminate/Support/Facades/Route.php",
 		"/C/xampp/htdocs/cms/resources/views/posts/create.blade.php",
 		"/C/xampp/htdocs/cms/app/Http/Controllers/PostsController.php",
 		"/C/xampp/htdocs/cms/app/Http/Controllers/CommentsController.php",
@@ -183,7 +234,7 @@
 	],
 	"find":
 	{
-		"height": 60.0
+		"height": 76.0
 	},
 	"find_in_files":
 	{
@@ -198,6 +249,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			";\n",
+			"destroy",
 			";\n",
 			"');\n",
 			"Route",
@@ -297,7 +350,7 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Packages/User/builds/PSR-2.sublime-build",
 	"project": "",
 	"replace":
 	{
@@ -310,6 +363,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"app\\Http\\Controllers\\ResourceController_old.php"
+			],
+			[
+				"resourcecontroller.",
+				"app\\Http\\Controllers\\ResourceController_old.php"
+			],
 			[
 				"postsco",
 				"app\\Http\\Controllers\\PostsController.php"
@@ -385,10 +446,6 @@
 			[
 				"cdata",
 				"config\\database.php"
-			],
-			[
-				"",
-				"resources\\views\\welcome.blade.php"
 			],
 			[
 				"helpers",
