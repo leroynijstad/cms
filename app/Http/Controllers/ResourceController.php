@@ -2,25 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Column;
+
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 class ResourceController extends Controller
 {
+    protected $_instance;
+    protected $resource;
+    protected $objects;
+    protected $exceptions;
+    protected $columns;
+
+    public function __construct(Request $request, Route $route)
+    {
+
+        $this->resource['name'] = last(explode('/', $request->url()));
+        $this->resource['path'] = "App\\".last(explode('/', $request->url()));
+        $this->resource['parent'] = "App\Resource";
+        $this->resource['action'] = last(explode('@', $route->getActionName()));
+
+        if (!is_subclass_of($this->resource['path'], $this->resource['parent'])) {
+            dd('test');
+        }
+
+        $this->_instance = new $this->resource['path'];
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        
-        // get list of resources for table
-            // get class of resource model
+    public function index()
+    {
+        $this->exceptions = ['text','created_at', 'updated_at'];
+        // get that data to display
+        $this->objects = $this->_instance->all();
 
 
-        // get columns by specification from model.
+        $this->columns = $this->getColumns();
 
-        // return view with table
+        $this->assignValuesToColumns();
 
+        return view('backend.module.index', [
+            'modulename' => $this->resource['name'],
+            'objects' => $this->objects,
+            'columns' => $this->columns
+        ]);
     }
 
     /**
@@ -63,7 +93,6 @@ class ResourceController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -87,5 +116,23 @@ class ResourceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getColumns()
+    {
+        return array_diff(\Schema::getColumnListing($this->_instance->getTable()), $this->exceptions);
+    }
+
+    public function assignValuesToColumns()
+    {
+
+        foreach ($this->columns as $key => $value) {
+            $this->columns[$value] = Column::
+                where('table_name', $this->_instance->getTable())
+                ->where('column_name', $value)
+                ->first(['type']);
+
+            unset($this->columns[$key]);
+        }
     }
 }

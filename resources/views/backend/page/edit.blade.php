@@ -3,15 +3,15 @@
 @section('content')
 	<div class="container-fluid">
 		<div class="menu_top col-md-12">
-			<a href="/administrator">go back</a>
+			<a href="/administrator/module/page">go back</a>
 		</div>
 	</div>
 		<div class="container-fluid">				
-			<form action="/administrator/module/page/{{$id}}" method="post" accept-charset="utf-8">
+			<form action="/administrator/module/page/{{$id}}" method="POST" accept-charset="utf-8">
 				{{ csrf_field() }}
-				{{ method_field('PATCH') }}
-				@foreach($columns as $column)
-					@include("backend.form.{$column['type']}")
+				<input name="_method" type="hidden" value="PATCH">
+				@foreach($fields as $field)
+					@include("backend.form.{$field->type}")
 				@endforeach
 				<div class="form-group row">
 				  <div class="col-md-2" style="float:right;">
