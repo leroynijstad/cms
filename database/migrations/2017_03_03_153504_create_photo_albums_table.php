@@ -1,6 +1,6 @@
 <?php
 
-use App\Input;
+use App\Field;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,27 +14,19 @@ class CreatePhotoAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->longText('text');
-            $table->string('image');
-			$table->enum('active', ['1', '0'])->default('1');
-            $table->string('tags');
-			$table->integer('parent_id');
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('albums')) {
+          Schema::create('albums', function (Blueprint $table) {
+              $table->increments('id');
+              $table->string('name');
+              $table->longText('text');
+              $table->string('image');
+              $table->enum('active', ['1', '0'])->default('1');
+              $table->string('tags');
+              $table->integer('parent_id');
+              $table->timestamps();
+          });
+        }
         
-        $columns = Schema::getColumnListing('albums');
-        $columns = array_diff($columns, ['id','created_at', 'updated_at']);
-
-        foreach($columns as $column){
-            $input = new Input;
-            $input->table_name = 'albums';
-            $input->column_name = $column;
-            $input->save();
-        } 
-
         DB::table('albums')->insert(
               array([
                   'id' => '42',

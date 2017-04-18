@@ -1,6 +1,6 @@
 <?php
 
-use App\Input;
+use App\Field;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,23 +14,15 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('icon');
-            $table->enum('color', ['red', 'purple', 'green'])->default('red');
-            $table->enum('active', ['1', '0'])->default('1');
-            $table->timestamps();
-        });
-
-        $columns = Schema::getColumnListing('modules');
-        $columns = array_diff($columns, ['id','created_at', 'updated_at']);
-        
-        foreach($columns as $column){
-            $input = new Input;
-            $input->table_name = 'modules';
-            $input->column_name = $column;
-            $input->save();
+        if (! Schema::hasTable('modules')) {
+            Schema::create('modules', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->string('icon');
+                $table->enum('color', ['red', 'purple', 'green'])->default('red');
+                $table->enum('active', ['1', '0'])->default('1');
+                $table->timestamps();
+            });
         }
 
         DB::table('modules')->insert(

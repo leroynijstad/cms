@@ -4,7 +4,7 @@
 	<div class="container-fluid">
 		<div class="menu_top col-md-12">
 			<a href="/administrator">go back</a>
-			<a href="/administrator/module/page/create" style="float: right;">
+			<a href="/administrator/module/{{$classname}}/create" style="float: right;">
 				<img width="25px" height="25px" src="/images/new.png" alt="add" title="add">
 			</a>
 		</div>
@@ -18,18 +18,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($pages as $page)
+			@foreach($objects as $object)
 				<tr>
 					@foreach($fields as $field)
-						<td headers="{{$field->name}}">{{ $page->{$field->name} }}</td>
+						<td headers="{{$field->name}}">{{ $object->{$field->name} }}</td>
 					@endforeach
 					<td style="width: 30px;">
-						<a href="/administrator/module/page/{{$page->id}}/edit">
+						<a href="/administrator/module/{{$classname}}/{{$object->id}}/edit">
 							<img width="25px" height="25px" src="/images/edit_blue.png" alt="delete" title="delete">
 						</a>
 					</td>
 					<td style="width: 30px;">
-						<a href="/administrator/module/page/{{$page->id}}/delete">
+						<a href="/administrator/module/{{$classname}}/{{$object->id}}/delete">
 							<img width="25px" height="25px" src="/images/delete_blue.png" alt="delete" title="delete">
 						</a>			
 					</td>
