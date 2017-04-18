@@ -16,4 +16,4 @@ mix.sass('resources/assets/sass/carousel.scss', 'public/css/frontend');
 mix.sass('resources/assets/sass/navbar.scss', 'public/css/frontend');
 mix.sass('resources/assets/sass/backend.scss', '/css/backend/algemeen.css');
 mix.sass('resources/assets/sass/frontend.scss', '/css/frontend/algemeen.css');
-mix.browserSync('project.dev');
+mix.browserSync('ruthkolthof.dev');

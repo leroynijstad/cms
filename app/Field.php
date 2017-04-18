@@ -6,17 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Field extends Model
 {
-    public function __construct($name)
+    public function __construct($name = null)
     {
         $this->attributes['name'] = $name;
     }
 
     public function getType($model)
     {
-        $this->attributes['type'] = $this->where('table_name', $model->getTable())
-        ->where('field_name', $this->attributes['name'])
-        ->first(['type'])
-        ->type;
+        if($field = $this->where('table_name', $model->getTable())->where('field_name', $this->attributes['name'])->first(['type'])){
+            $this->attributes['type'] = $field->type;
+        }
+
+        if(empty($this->attributes['type'])){
+            $this->attributes['type'] = 'text';
+        }
 
         if ($this->attributes['type'] === "select") {
             $this->assignOptionsForSelect($model->getTable(), $this->attributes['name']);
@@ -24,8 +27,12 @@ class Field extends Model
     }
 
     public function assignValue($model)
-    {
-        $this->attributes['value'] = $model->{$this->attributes['name']} ? $model->{$this->attributes['name']} : '';
+    { 
+        $this->attributes['value'] = '';
+
+        if(!empty($model->{$this->attributes['name']}) || $model->{$this->attributes['name']} === '0'){
+            $this->attributes['value'] = $model->{$this->attributes['name']};
+        }
     }
 
     public function addClass(string $name)

@@ -1,6 +1,6 @@
 <?php
 
-use App\Input;
+use App\Field;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,25 +14,16 @@ class CreateBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->enum('active', ['1', '0'])->default('1');
-            $table->string('image');
-            $table->string('link');
-            $table->enum('type', ['main', 'small'])->default('main');
-            $table->timestamps();
-        });
-
-        
-        $columns = Schema::getColumnListing('banners');
-        $columns = array_diff($columns, ['id','created_at', 'updated_at']);
-
-        foreach($columns as $column){
-            $input = new Input;
-            $input->table_name = 'banners';
-            $input->column_name = $column;
-            $input->save();
+        if (! Schema::hasTable('banners')) {
+          Schema::create('banners', function (Blueprint $table) {
+              $table->increments('id');
+              $table->string('title');
+              $table->enum('active', ['1', '0'])->default('1');
+              $table->string('image');
+              $table->string('link');
+              $table->enum('type', ['main', 'small'])->default('main');
+              $table->timestamps();
+          });
         }
 
         DB::table('banners')->insert(

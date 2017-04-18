@@ -4,27 +4,29 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Page;
+use App\Banner;
 use App\Form;
 use App\Column;
 
-class PageController extends Controller
+class BannerController extends Controller
 {
     public $model;
     protected $table;
     protected $columns;
-    protected $classname;
+    protected $view;
+    protected $class;
 
     public function __construct()
     {
-        $this->model = new Page();
+        $this->model = new Banner();
         $this->table = $this->model->getTable();
-        $this->view = 'backend.default.';
-        $this->classname = 'page';
+        $this->classname = 'banner';
 
-        if(\View::exists('backend.page.index')){
-            $this->view = 'backend.page.';
+        $this->view = 'backend.default.';
+        if(\View::exists('backend.banner.index')){
+            $this->view = 'backend.banner.';
         }
+
     }
     /**
      * Display a listing of the resource.
@@ -33,12 +35,13 @@ class PageController extends Controller
      */
     public function index()
     {
-        $this->columns = ['id','name','link', 'active','type'];
+        $this->columns = ['id','title','active', 'image','link', 'type'];
 
-        $objects = Page::all();
+        $objects = Banner::all();
 
         $form = new Form($this->columns, $this);
-        return view($this->view.'index', ['classname' => $this->classname, 'fields' => $form->fields, 'objects' => $objects]);
+
+        return view($this->view.'index', ['classname'=> $this->classname, 'fields' => $form->fields, 'objects' => $objects]);
     }
 
     /**
@@ -48,10 +51,10 @@ class PageController extends Controller
      */
     public function create()
     {
-        $this->columns = ['name','link', 'active','text','type'];
+        $this->columns = ['title','active', 'image','link', 'type'];
 
         $form = new Form($this->columns, $this);
-        return view($this->view.'create', ['classname' => $this->classname, 'fields' => $form->fields]);
+        return view($this->view.'create', ['classname'=> $this->classname, 'fields' => $form->fields]);
     }
 
     /**
@@ -62,14 +65,14 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        $this->columns = ['name','link', 'active','text','type'];
+        $this->columns = ['title','active', 'image','link', 'type'];
 
         foreach ($this->columns as $column) {
             $this->model->{$column} = $request->{$column};
         }
         $this->model->save();
 
-        return redirect("/administrator/module/{$this->classname}");
+        return redirect("/administrator/module/banner");
     }
 
     /**
@@ -78,12 +81,12 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Banner $banner)
     {
-        $this->model = $page;
-        $this->columns = ['name','link', 'active','type','text'];
+        $this->model = $banner;
+        $this->columns = ['title','active', 'image','link', 'type'];
         $form = new Form($this->columns, $this);
-        return view($this->view.'edit', ['classname' => $this->classname, 'fields' => $form->fields, 'id' => $page->id]);
+        return view($this->view.'edit', ['classname'=> $this->classname, 'fields' => $form->fields, 'id' => $banner->id]);
     }
 
     /**
@@ -95,7 +98,7 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->columns = ['name','link', 'active','text','type'];
+        $this->columns = ['title','active', 'image','link', 'type'];
 
         $model = ($this->model)->where('id', $id)->first();
         foreach ($this->columns as $column) {

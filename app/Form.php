@@ -22,7 +22,7 @@ class Form extends Model
         $field->getType($this->model);
 
         $field->assignValue($this->model);
-
         $this->attributes['fields'][$fieldName] = $field;
+
     }
 }
